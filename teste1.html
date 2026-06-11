@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pergunta Sim ou Não</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    h1 { font-size: 1.5rem; margin-bottom: 2rem; }
+
+    #area-botoes {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 28px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    #btn-sim {
+      background: #d4edda;
+      color: #155724;
+      margin-right: 1rem;
+    }
+
+    #btn-nao {
+      background: #f8d7da;
+      color: #721c24;
+      position: absolute;
+    }
+
+    #mensagem {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #555;
+      min-height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<?php
+  $pergunta = "Você gosta de mim? 😏";
+?>
+
+<h1><?= htmlspecialchars($pergunta) ?></h1>
+
+<div id="area-botoes">
+  <button id="btn-sim" onclick="clicarSim()">Sim</button>
+  <button id="btn-nao">Não</button>
+</div>
+
+<p id="mensagem"></p>
+
+<script>
+  const btn = document.getElementById('btn-nao');
+  const area = document.getElementById('area-botoes');
+  const msg = document.getElementById('mensagem');
+  let tentativas = 0;
+
+  btn.addEventListener('mouseenter', function () {
+    tentativas++;
+    const aw = area.offsetWidth - btn.offsetWidth;
+    const ah = area.offsetHeight - btn.offsetHeight;
+    const nx = Math.floor(Math.random() * aw);
+    const ny = Math.floor(Math.random() * ah);
+    btn.style.left = nx + 'px';
+    btn.style.top = ny + 'px';
+
+    if (tentativas === 1) msg.textContent = 'Hmm, tenta aí...';
+    else if (tentativas === 2) msg.textContent = 'Quase! 😄';
+    else if (tentativas === 3) msg.textContent = 'Parece difícil, né? 😂';
+    else msg.textContent = 'Esse botão não quer ser clicado! 🏃';
+  });
+
+  function clicarSim() {
+    msg.textContent = '🎉 Sabia que você ia clicar em Sim!';
+    document.getElementById('btn-sim').disabled = true;
+    btn.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
