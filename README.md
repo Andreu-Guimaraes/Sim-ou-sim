@@ -1,5 +1,4 @@
-# Sim-ou-sim
-Pergunta com as opções sim ou não, onde o não "foge" do mouse
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+# Leia isso professor
+1- Permita que o https://localhost consiga abrir pop-up para o resultado ser mais legal
+2- Nao esqueca de colocar a pasta "fotos" junto da pasta dos arquivos
+3- O site tem musica ent aumente o volume
